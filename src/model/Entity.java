@@ -1,10 +1,6 @@
-/*
- * Tyler Kerns
- */
-
 package model;
 
-public class Entity {
+public abstract class Entity {
     private Location loc;
     private int id;
 
