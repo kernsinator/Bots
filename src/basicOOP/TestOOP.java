@@ -13,5 +13,10 @@ public class TestOOP {
         System.out.println(a1);
         System.out.println(b1);
         System.out.println(c1);
+
+        System.out.println(c1.getaString());
+        c1.setaString("Modified cString");
+
+        System.out.println(c1.getaString());
     }
 }
