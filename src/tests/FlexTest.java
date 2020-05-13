@@ -15,6 +15,7 @@ public class FlexTest {
         bots.add(new FlexibleBot(new Location(0,0), 25, Movable.Directions.RIGHT, Bot.FAST_SPEED));
         bots.add(new FlexibleBot(new Location(0,5), 32, Movable.Directions.LEFT, Bot.SLOW_SPEED));
         bots.add(new FlexibleBot(new Location(0,2), 45, Movable.Directions.DOWN, Bot.SLOW_SPEED));
+        bots.add(new KillerBot(new Location(1,3), 40, Movable.Directions.DOWN, Bot.SLOW_SPEED, Bot.SLOW_SPEED));
 
         Map map=new Map(bots);
 
