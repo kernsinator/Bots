@@ -13,9 +13,10 @@ public class WallMaker extends FlexibleBot {
 
     @Override
     public boolean move(Map m) {
-        Location temp = this.getLoc();
+        // use temporary values for locations
         int col = this.getLoc().getCol();
         int row = this.getLoc().getRow();
+
         boolean moved = super.move(m);//call on move() from Bot
         int spacesToMove = getMoveSpeed();
         int turnCount = 0;
@@ -42,7 +43,7 @@ public class WallMaker extends FlexibleBot {
             moved = turnCount < 4;
         }
 
-        Wall w = new Wall(new Location(row, col), 99, false, false, true);
+        Wall w = new Wall(new Location(row, col), 99);
         ArrayList<Entity> bots = m.getBots();
         bots.add(w);
         m.setBots(bots);

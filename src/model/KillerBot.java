@@ -20,7 +20,7 @@ public class KillerBot extends FlexibleBot{
         if(!moved){
             while(spacesToMove>0&&turnCount<4) {
                 if(!movePathClear(m)&&botDistanceToEntity(m)<getMoveSpeed()){
-                    turn();
+                    killBot()
                     turnCount++;
                 }//turned
                 else{
@@ -48,6 +48,36 @@ public class KillerBot extends FlexibleBot{
         m.removeBotFromList(killed);
 
         return killed;
+    }
+
+    public Bot findTarget(Map m) {
+        Bot b;
+        int distance = botDistanceToEntity(m);
+        int currentRow = getLoc().getRow();
+        int currentCol = getLoc().getCol();
+        if (this.getDirection() == Directions.UP) {
+            b =  m.[currentRow - distance][currentCol];
+        }
+        return b;
+    }
+
+    public ArrayList<Bot> getBotsInPath(Map map){
+        ArrayList<Bot> bots=new ArrayList<>();
+        ArrayList<Entity> ents=map.getBots();
+
+        //find all bots within tolerance
+        for(Entity e: ents){
+            int distance=distance((Bot)e);
+            if(distance<=getMoveSpeed()&&e instanceof Bot){
+                bots.add((Bot)e);
+            }
+        }
+
+        return bots;
+    }
+
+    public boolean inPath() {
+        if(getDirection() == Directions.UP && )
     }
 
     public int getIndexOfClosestBot(ArrayList<Bot> bots){
